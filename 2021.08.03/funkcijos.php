@@ -110,6 +110,3 @@ function recursion ($num){
   }
   echo $num . " ";
 }
-
-
-?>

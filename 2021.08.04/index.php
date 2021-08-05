@@ -66,7 +66,7 @@ for ($i = 0; $i < 10; $i++) {
         $masyvaS[$i][] = $j;
     }
 }
-//print_r($masyvaS);
+print_r($masyvaS);
 echo "<hr>";
 //---------------------------------------------------------
 
@@ -111,7 +111,8 @@ echo "<hr>";
 //didžiąjame masyve bus sudėti mažesni masyvai, iš eilės. 
 //maži masyvai bus tokie patys kaip 4. užduotyje. 
 //jų reikšmes užpildykite 5. masyvų reikšmėmis. t.y imate random vardą, ir priskiriate konstruojamam gyvūnui ir tt.
-//kaip ta padaryti automatiškai??
+
+
 $masGeneral = [
     $names = ["vardas1", "vardas2", "vardas3", "vardas4", "vardas5", "vardas6", "vardas7", "vardas8", "vardas9", "vardas10"],
     $species = ["kengūra", "gazelė", "liūtas", "avis", "bitė", "elnis", "karvė", "kiaulė", "šuo", "putpelė"],
@@ -119,7 +120,7 @@ $masGeneral = [
 ];
 //print_r($masGeneral);
 for ($i = 0; $i < 10; $i++) {
-    echo  $names[$i] . "=>" .  $species[$i] . "=>" . $descriptions[$i] . "<br>";
+   // echo  $names[$i] . "=>" .  $species[$i] . "=>" . $descriptions[$i] . "<br>";
 }
 
 
@@ -138,12 +139,40 @@ for ($i = 0; $i < 10; $i++) {
 
 // 5c. atvaizduokite gyvūnus iš 5b masyvo. vienas gyvūnas - viena eilutė.
 
+echo "<hr>";
 
-
+//------------------------------------------------------------------//
 //6. padarykite daugybos lentelę nuo 1 iki 9.
 
 
+//du while\
+//sugalvoti du kintamieji (i ir j)
+
+// ne mano kodas. Interneto. Tik analizei pasiemiau. 
+$i = 1; //rows
+
+while ($i < 10) { // while'as nurodo, jog bus atliekama iki  kol bus daugiau uz 10.
+    echo "\t<tr>\n"; // row, kad butu eile.
+
+
+
+    $j = 1; //columns
+
+    while ($j < 11) {//while'as nurodo, kad bus dauginama 10 skaiciu.
+        echo "\t\t<td>$i * $j = " . $i * $j . "</td>\n"; //eilutes sablonas, kuria atliekamas veiksmas. 
+        $j++;
+    }
+
+    echo "\t</tr>\n"; // 
+    $i++;
+}
+
+echo "</table>";
 
 
 
 ?>
+ 
+
+
+

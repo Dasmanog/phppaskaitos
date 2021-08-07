@@ -24,55 +24,69 @@ echo "<hr>";
 $masyv = [];
 
 for ($i = 0; $i < 10; $i++) {
-    $masyv[] = rand(0, 10);
+    $masyv[] = $i;
 }
-
+print_r($masyv);
 
 
 //2b. sukurkite kitą masyvą su 10 skaičių nuo 10 iki 20
 //2c. pasinaudoję ciklu atspausdinkite 100 atsitiktinių skaičių iš 2b masyvo.
 //t.y kiekvienoje ciklo iteracijoje imkite atsitiktinį 2b masyvo skaičių.
 
-$masyv2 = [];
+//$masyv2 = []; // nebutina rasyti, nebent norim sau, kad nuosekliau atrodytu kodas. 
+$masyv2[10] = $i;
 
-for ($i = 0; $i < 10; $i++) {
-    $masyv2[$i] = rand(0, 10);
+for ($i = 11; $i < 20; $i++) {
+    $masyv2[] = $i;
 }
+print_r($masyv2);
 
-for ($i = 0; $i < 10; $i++) {
-    for ($j = 0; $j < count($masyv2); $j++) {
-        //echo $masyv2[$j] = rand(0,10) . " " . "<br>";
-    }
-}
-
+echo "<br>";
 echo "<hr>";
 
 
 
+for ($i = 0; $i < 100; $i++) {
+   echo $neww[] = rand(0, count($masyv2) - 1) . " ";
+}
+//print_r($neww);
+echo "<hr>";
 
 
 //------------------------------------------------------------------//
 
-//3. sukurkite dvimatį masyvą. 
-//pirmas matmuo - 10 elementų. 
-//antras 10 elementų.
-//reikšmės - skaičiai nuo 0 iki 9.
-
-echo "<pre>";
-$masyvaS = [[]];
+//3. sukurkite dvimatį masyvą.  pirmas matmuo - 10 elementų.  antras 10 elementų. reikšmės - skaičiai nuo 0 iki 9. 
+//3b. atspausdinkite duomenis. (gausis skaičių stačiakampis). 
+echo "3 uzdavinys" . "<br>";
+echo "<br>";
+echo "<br>";
+//echo "<pre>";
+$masyvaS = [];
 
 for ($i = 0; $i < 10; $i++) {
+    //$masyvas[] = $i;
     for ($j = 0; $j < 10; $j++) {
-        $masyvaS[$i][] = $j;
-    }
+      //echo  $masyvaS[$i][] = $j;
+      //for ($k = 0; $k < 10; $k++) {
+        echo  $masyvaS[$i][] = $j . " ";
+        
+  //  }
+
 }
-print_r($masyvaS);
+echo "<br>"; 
+}
 echo "<hr>";
 //---------------------------------------------------------
 
-//3b. atspausdinkite duomenis. (gausis skaičių stačiakampis).
-
 //3c. padarykite tą patį, ką  darėte 3b, tik spausdinkite tuos skaičius pakeltus kvadratu
+echo "3c uzduotis <br><br><br>"; 
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+        echo  pow($masyvaS[$i][] = $j *  $masyvaS[$i][] = $j, 2). " ";//pakeltakvadratu.
+        
+    }
+    echo "<br>"; 
+}
 
 
 
@@ -83,12 +97,12 @@ echo "<hr>";
 
 // raktažodžiai (key): "species","age", "name", "description". 
 //Tai bus vienas objektas, vienas gyvūnas, su rūšimi, amžiumi, vardu ir aprašu.
+echo "<hr>";
 
+$gyvunas = ['species' => "begemotas", "age" => 20, "name" => "Arthur", "description" => "be nosies"];//key+value principas
+print_r($gyvunas);
 
-$gyvunas = ['species' => "begemotas", "age" => 20, "name" => "Arthur", "description" => "be nosies"];
-//print_r($gyvunas);
-
-
+  
 echo "<hr>";
 
 //---------------------------------------------------------------------//
@@ -111,7 +125,9 @@ echo "<hr>";
 //didžiąjame masyve bus sudėti mažesni masyvai, iš eilės. 
 //maži masyvai bus tokie patys kaip 4. užduotyje. 
 //jų reikšmes užpildykite 5. masyvų reikšmėmis. t.y imate random vardą, ir priskiriate konstruojamam gyvūnui ir tt.
+// 5c. atvaizduokite gyvūnus iš 5b masyvo. vienas gyvūnas - viena eilutė.
 
+echo "5 uzduotis <br><br>";
 
 $masGeneral = [
     $names = ["vardas1", "vardas2", "vardas3", "vardas4", "vardas5", "vardas6", "vardas7", "vardas8", "vardas9", "vardas10"],
@@ -119,11 +135,18 @@ $masGeneral = [
     $descriptions = ["gražus bet piktas", "pastoviai miega", "šauniai maskuojasi", "tyliai dūzgia", "greitai bėga", "dideli ragai", "taria: mūūūūū", "deda kiaušinius", "garsiai/tyliai loja", "kriuksi, visada kriuksi"]
 ];
 //print_r($masGeneral);
-for ($i = 0; $i < 10; $i++) {
-   // echo  $names[$i] . "=>" .  $species[$i] . "=>" . $descriptions[$i] . "<br>";
-}
+for ($i = 0; $i < 20; $i++) {
+  echo $zoo[$i][] = $names[rand(0, count($names) - 1)] . " ";
+  echo $zoo[$i][] = $species[rand(0, count($species) - 1)] . " ";
+  echo $zoo[$i][] = $descriptions[rand(0, count($descriptions) - 1)] . " ";
+  echo $zoo[$i]['age'] = rand(0, 12);
+  echo "<br>";
+}// taip uzrasius viskas susimaiso, gaunasi random funkcija, amziu random prisikiria. 
+//tai gaunasi, kad kiekviena karta pravedus cikla, skaitoma kiekviena eilute zemyn iki galo, ir tik tada vel ciklas kartojasi. 
 
-
+//foreach ($zoo as $animal) {
+    //    echo $animal['names'] . " " . $animal['species'] . " " . $animal['descriptions'] . " " . $animal['age'] . " ";
+    // }
 
 
 
@@ -137,37 +160,48 @@ for ($i = 0; $i < 10; $i++) {
 // print_r($k);
 
 
-// 5c. atvaizduokite gyvūnus iš 5b masyvo. vienas gyvūnas - viena eilutė.
 
 echo "<hr>";
 
 //------------------------------------------------------------------//
 //6. padarykite daugybos lentelę nuo 1 iki 9.
+echo "6 uzduotis <br>";
+for ($i=1; $i < 10; $i++) { 
+    for ($j=1; $j < 10; $j++) { 
+        echo $i * $j;
+    }
+echo "<br>";
+}
+
+
+
+
+
+
 
 
 //du while\
 //sugalvoti du kintamieji (i ir j)
-
 // ne mano kodas. Interneto. Tik analizei pasiemiau. 
-$i = 1; //rows
+// $i = 1; //rows 
 
-while ($i < 10) { // while'as nurodo, jog bus atliekama iki  kol bus daugiau uz 10.
-    echo "\t<tr>\n"; // row, kad butu eile.
+// while ($i < 10) { // while'as nurodo, jog bus atliekama iki  kol bus daugiau uz 10.
+//     echo "\t<tr>\n"; // row, kad butu eile.
 
 
 
-    $j = 1; //columns
+//     $j = 1; //columns
 
-    while ($j < 11) {//while'as nurodo, kad bus dauginama 10 skaiciu.
-        echo "\t\t<td>$i * $j = " . $i * $j . "</td>\n"; //eilutes sablonas, kuria atliekamas veiksmas. 
-        $j++;
-    }
+//     while ($j < 11) {//while'as nurodo, kad bus dauginama 10 skaiciu.
+//         echo "\t\t<td>$i * $j = " . $i * $j . "</td>\n"; //eilutes sablonas, kuria atliekamas veiksmas. 
+//         $j++;
+//     }
 
-    echo "\t</tr>\n"; // 
-    $i++;
-}
+//     echo "\t</tr>\n"; // 
+//     $i++;
+// }
 
-echo "</table>";
+//echo "</table>";
 
 
 

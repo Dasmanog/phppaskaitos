@@ -26,12 +26,11 @@ echo "<hr>";
 //1c. sukurkite funkciją kuri gražina skaičiaus PI pirmus 8 skaičius
 
 echo " 1c. I variantas. <br>";
-myPi($pi = 3.1415926);
+myPi($pi );
 //round();
-function myPi($pi)
+function myPi()
 {
-        echo $pi;
-}
+        return 3.1415926;
 
 
 echo "<hr>";

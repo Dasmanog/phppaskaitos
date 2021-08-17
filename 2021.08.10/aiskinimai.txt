@@ -1,0 +1,23 @@
+double r;
+int a, b;
+a = 5; b = 2;
+r = a / b;
+r = 2;
+r = ?
+r = (double) a / b;
+r = a * 1.0 / b;
+r = a / (b * 1.0);
+r = 2.5;
+
+int s, kk, k = 0, kisleido = 0;
+cin >> s;
+cin >> kk;
+
+while (s >= kk){
+  k++;
+  kisleido += kk;
+  s = s - kk;
+  cin >> kk;
+}
+
+cout << k << " " << kisleido << " " << s << endl;

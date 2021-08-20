@@ -78,10 +78,6 @@ if (isset($_GET['action'])) {
             background-color: grey;
             color: white;
         }
-        a{
-            text-decoration: none;
-            color: black;
-        }
     </style>
 </head>
 
@@ -90,42 +86,42 @@ if (isset($_GET['action'])) {
         <input type="hidden" name="action" value="<?= $action ?>">
         <div class="form-group row">
             <!--manufacturer  -->
-            <label class="col-sm-2 col-form-label">Gamintojas</label>
+            <label class="col-sm-2 col-form-label">Manufacturer</label>
             <div class="col-sm-4">
                 <input type="text" name="manufacturer" class="form-control" value="<?= (isset($car)) ? $car['manufacturer'] : "" ?>"> <!--  klausiu ar turiu kintamaji olympic, jeigu taip, tada redaguojam  -->
             </div>
         </div>
         <div class="form-group row">
             <!--model  -->
-            <label class="col-sm-2 col-form-label">Modelis</label>
+            <label class="col-sm-2 col-form-label">Model</label>
             <div class="col-sm-4">
                 <input type="text" name="model" class="form-control" value="<?= (isset($car)) ? $car['model'] : "" ?>">
             </div>
         </div>
         <div class="form-group row">
             <!-- year  -->
-            <label class="col-sm-2 col-form-label">Metai</label>
+            <label class="col-sm-2 col-form-label">Year</label>
             <div class="col-sm-4">
                 <input type="text" name="year" class="form-control" value="<?= (isset($car)) ? $car['year'] : "" ?>">
             </div>
         </div>
         <div class="form-group row">
             <!--color -->
-            <label class="col-sm-2 col-form-label">Spalva</label>
+            <label class="col-sm-2 col-form-label">Color</label>
             <div class="col-sm-4">
                 <input type="text" name="color" class="form-control" value="<?= (isset($car)) ? $car['color'] : "" ?>">
             </div>
         </div>
         <div class="form-group row">
             <!--distance  -->
-            <label class="col-sm-2 col-form-label">Rida</label>
+            <label class="col-sm-2 col-form-label">Distance</label>
             <div class="col-sm-4">
                 <input type="text" name="distance" class="form-control" value="<?= (isset($car)) ? $car['distance'] : "" ?>">
             </div>
         </div>
         <div class="form-group row">
             <!--fuel  -->
-            <label class="col-sm-2 col-form-label">Degalai</label>
+            <label class="col-sm-2 col-form-label">Fuel</label>
             <div class="col-sm-4">
                 <input type="text" name="fuel" class="form-control" value="<?= (isset($car)) ? $car['fuel'] : "" ?>">
             </div>
@@ -144,7 +140,7 @@ if (isset($_GET['action'])) {
 
     <?php
     if (!isset($_GET['hide'])) { ?>
-        <button class="btn btn-primary" type="submit"><a href="?hide">Slėpti</a></button>
+        <a href="?hide">Slėpti</a>
 
     <table class="table table-dark table-striped">
 
@@ -184,7 +180,7 @@ if (isset($_GET['action'])) {
         <?php } ?>
     </table>
     <?php } else {  ?>
-    <button class="btn btn-primary" type="submit"><a href="?show">Rodyti</a></button>
+        <a href="?show">Rodyti</a>
     <?php } ?>
 </body>
 

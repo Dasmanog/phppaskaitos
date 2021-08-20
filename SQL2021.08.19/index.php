@@ -40,7 +40,7 @@ if (isset($_GET['edit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <title>Cars</title>
+    <title>Augalai</title>
     <style>
         body {
             background-color: grey;
@@ -101,6 +101,7 @@ if (isset($_GET['edit'])) {
         </tr>
         <?php $count = 0;
         foreach (all() as $plant) { ?>
+
             <tr>
                 <td><?= ++$count."/".$plant['id'] ?> </td>
                 <td><?= $plant['name'] ?> </td>
@@ -109,7 +110,7 @@ if (isset($_GET['edit'])) {
                 <td>
                     <a class="btn btn-warning" href="?edit=<?= $plant['id'] ?>">Keisti</a>
                 </td> 
-                <td>
+                <td> 
                     <form action="" method="POST">
                         <input type="hidden" name="id" value="<?= $plant['id'] ?>">
                         <input type="hidden" name="action" value="destroy">

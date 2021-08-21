@@ -2,26 +2,26 @@
 
 include('./functions.php');
 //fill form for edit
-if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])){
+if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
     $animal = edit();
 }
 
 //store
-if($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])) {
     store();
     header("location:./suSesijom.php");
     die;
 }
 
 //destroy
-if($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['species'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['species'])) {
     destroy();
     header("location:./suSesijom.php");
-    die; 
+    die;
 }
 
 //update    
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
     update();
     header("location:./suSesijom.php");
     die;
@@ -32,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,60 +43,67 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
 
-    <form class="form" action="" method="POST">
+    <form action="" method="POST" class="form">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno rūšis</label>
+            <label class="col-sm-2 col-form-label">Gyvūno rūšis</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="species" value="<?= (isset($animal))? $animal['species'] : "" ?>">
+                <input class="form-control" type="text" name="species" value="<?= (isset($animal)) ? $animal['species'] : "" ?>">
             </div>
-         </div>
-         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno vardas</label>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Gyvūno vardas</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="name" value="<?= (isset($animal))? $animal['name'] : "" ?>">
+                <input class="form-control" type="text" name="name" value="<?= (isset($animal)) ? $animal['name'] : "" ?>">
             </div>
-         </div>
-         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno amžius</label>
+        </div>
+        
+        
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Gyvūno amžius</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="age" value="<?= (isset($animal))? $animal['age'] : "" ?>">
+
+                <input class="form-control" type="text" name="age" value="<?= (isset($animal)) ? $animal['age'] : "" ?>">
             </div>
-         </div>
-    <?php if(!isset($animal)){
+        </div>
+
+
+        <?php if (!isset($animal)) {
             echo '<button class="btn btn-primary" type="submit">Pridėti gyvūną</button>';
-    }else{
-            echo '
-            <input type="hidden" name="id" value="'. $animal['id'].' ">
+        } else {
+            echo '<input type="hidden" name="id" value="' . $animal['id'] . ' ">
             <button class="btn btn-info" type="submit">Atnaujinti gyvūną</button>';
-    } ?>
+        } ?>
     </form>
 
 
 
     <table class="table">
         <tr>
-        <th>Id</th> 
-        <th>Rūšis</th> 
-        <th>Vardas</th> 
-        <th>Amžius</th> 
-        <th>edit</th> 
-        <th>delete</th> 
+            <th>Id</th>
+            <th>Rūšis</th>
+            <th>Vardas</th>
+            <th>Amžius</th>
+            <th>edit</th>
+            <th>delete</th>
         </tr>
 
 
-        <?php $count = 0; 
+        <?php $count = 0;
         foreach ($_SESSION['zoo'] as $animal) {  ?>
             <tr>
-            <td> <?= ++$count."/".$animal['id']  ?> </td>
+                <td> <?= ++$count . "/" . $animal['id']  ?> </td>
                 <td> <?= $animal['species']  ?> </td>
                 <td> <?= $animal['name']  ?> </td>
                 <td> <?= $animal['age']  ?> </td>
-                <td><a class="btn btn-success" href="?id=<?= $animal['id']  ?>">edit</a></td>
+                <td><a class="btn btn-success" href="?id=<?=$animal['id']?>">edit</a></td>
                 <td>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?=$animal['id']?>"  >
+                        <input type="hidden" name="id" value="<?=$animal['id']?>">
                         <button class="btn btn-danger" type="submit">delete</button>
                     </form>
                 </td>
@@ -103,4 +111,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
         <?php } ?>
     </table>
 </body>
+
 </html>

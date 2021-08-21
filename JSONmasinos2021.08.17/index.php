@@ -32,34 +32,6 @@ if (isset($_GET['action'])) {
     $action = 'update';
 }
 
-// init(); // sukuria sesija, patikrina ar musu sesijoj yra tie kintamieji, jeigu nera, tada sukuriama.
-
-// //fill form for edit
-// if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) { //jeigu yra GET'as ir yra issetintas ID, mes bandom surasti viena konkretu gyvuna,
-//     $player = edit();  //kai paspaudziam edit mygtuka ir norim kad cia uzsipildytu reiksmes.
-// }
-
-// // store
-// if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])) { // rasom kai norim irodyti, kad turim kintamaji ir paspaudus ant mygtuko mes tiesiog ji redaguojam ir nereikia kurti naujo. Tuo paciu jeigu ivedam parametrus ir spaudziam mygtuka, taciau id dar neturim, tada reiskia kad reikia sukurti nauja playeri.
-//     store(); // turi pasiimti ir kazka issaugoti i sesija, ji neturi nieko grazinti.
-//     header("location:./index.php");
-//     die;
-// }
-
-// //destroy
-// if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['surname'])) { // DELETE.....if'as kad delete'as butu atliekamas. 
-//     destroy();
-//     header("location:./index.php");
-//     die;
-// }
-
-// //update
-// //jeigu yra POST  ir yra ID, kai mes submitinam forma, updatinam. 
-// if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) { //EDIT.......JEIGU TURI ID TAI REISKIA, KAD PASPAUDUS MYGTUKA, MES JI UPDATINAM, cia ivyksta update'as.
-//     update();
-//     header("location:./index.php");
-//     die;
-// }
 
 
 ?>

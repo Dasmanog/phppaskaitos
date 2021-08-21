@@ -26,7 +26,6 @@ function store(){
     $animal['age'] = $_POST['age'];
 
     $_SESSION['id']++;
-    
     $_SESSION['zoo'][] = $animal;
 }
 

@@ -4,11 +4,8 @@ include('./FunkcijosPIRMASCRUD.php');
 
 //edit, kai sita suvedu, iskart pradeda kaupti i session duomenis. 
 if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
-    $physics = edit();
+    $element = edit();
 }
-
-
-
 
 //store 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])) {
@@ -17,21 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])) {
     die;
 }
 
-
-
-
-
 //destroy 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['main_quantity'])) {
-    
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['abbreviation'])) {
     destroy();
     header("location:./PIRMASCRUD.php");
     die;
 }
-
-
-
-
 
 //update
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
@@ -60,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <title>SI vienetas</title>
 </head>
+
 <body>
 
 
@@ -72,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
             <div class="col-sm-4">
 
-                <input type="text" name="main_quantity" class="form-control" value="<?= (isset($physics)) ? $physics['main_quantity'] : "" ?>">
+                <input type="text" name="main_quantity" class="form-control" value="<?= (isset($element)) ? $element['main_quantity'] : "" ?>">
 
             </div>
         </div>
@@ -85,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
             <div class="col-sm-4">
 
-                <input type="text" name="symbol" class="form-control" value="<?= (isset($physics)) ? $physics['symbol'] : "" ?>">
+                <input type="text" name="symbol" class="form-control" value="<?= (isset($element)) ? $element['symbol'] : "" ?>">
 
             </div>
         </div>
@@ -98,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
             <div class="col-sm-4">
 
-                <input type="text" name="si" class="form-control" value="<?= (isset($physics)) ? $physics['si'] : "" ?>">
+                <input type="text" name="si" class="form-control" value="<?= (isset($element)) ? $element['si'] : "" ?>">
             </div>
         </div>
 
@@ -110,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
             <div class="col-sm-4">
 
-                <input type="text" name="abbreviation" class="form-control" value="<?= (isset($physics)) ? $physics['abbreviation'] : "" ?>">
+                <input  class="form-control" type="text" name="abbreviation" value="<?= (isset($element)) ? $element['abbreviation'] : "" ?>">
             </div>
         </div>
 
@@ -118,44 +107,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
 
         <!-- Mygtukas, kad atsivaizduotu, norint, kad jis atsivaizduotu pagal paskirti, reikia suvesti if cikla -->
-        <?php if (!isset($physics)) { //reikia paduoti button html koda kaip stringa ir kad ji skaitytu if kaip teksta ir isechointu.
-
+        <?php if (!isset($element)) { //reikia paduoti button html koda kaip stringa ir kad ji skaitytu if kaip teksta ir isechointu.
             echo '<button class="btn btn-secondary" type="submit">Pridėti fizikinį dydį</button>';
-        
         } else {
-
-
-            echo '<input type="hidden" name="id" value="' . $physics['id'] . ' ">
-        
+            echo '<input type="hidden" name="id" value="' . $element['id'] . ' ">
             <button class="btn btn-primary" type="submit">Atnaujinti fizikinį dydį</button>';
-       
-       } ?>
-
-
+        } ?>
     </form>
 
 
-
-    <br>
-
-    <h5>Pagrindiniai fizikiniai dydžiai</h5>
-    <table class="table table-striped  table-sm table-dark">
-
-
+    <!-- <h5>Pagrindiniai fizikiniai dydžiai</h5> -->
+    <table class="table table-striped">
         <tr>
-
             <!--Čia viršutinis tekstas lentelėje, stulpeliu pavadinimai -->
             <th>ID</th>
             <th>Pagrindinis dydis</th>
             <th>Simbolis</th>
             <th>Pagrindinis Si vienetas</th>
             <th>Santrupa</th>
-
             <th>edit</th>
-
             <th>delete</th>
-
-
         </tr>
 
 
@@ -164,41 +135,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
 
         <?php $count = 0;
         foreach ($_SESSION['physics'] as $element) { ?>
-
             <tr>
-
                 <td> <?= ++$count . "/" . $element['id'] ?> </td>
-
                 <td> <?= $element['main_quantity']  ?></td>
                 <td> <?= $element['symbol'] ?></td>
                 <td> <?= $element['si']  ?></td>
                 <td> <?= $element['abbreviation'] ?></td>
-
-
-                <td><a class="btn btn-info" href="?id=<?= $element['id']  ?>">edit</a></td>
-
-
+                <td><a class="btn btn-info" href="?id=<?=$element['id']?>">edit</a></td>
                 <td>
 
-                    <form action="" method="POST">
+                    <form action="" method="post">
 
-                        <input type="hidden" name="id" value="<?= $element['id'] ?>">
+                        <input type="hidden" name="id" value="<?=$element['id']?>">
 
                         <button class="btn btn-warning" type="submit">delete</button>
-
                     </form>
-
                 </td>
-
-
             </tr>
-
-
         <?php } ?>
-
-
     </table>
-
 </body>
 
 </html>

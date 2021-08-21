@@ -14,47 +14,34 @@ function init()
 }
 
 
-
-
 //kai suvedu sita funkcija, tada pradeda kaupti duomenis sessione. 
 function edit(){
-
     foreach($_SESSION['physics'] as $element){
-
         if ($element['id'] == $_GET['id']) {
             return $element;
         }
     }
 }
 
-
-
-
-
 function store(){
 
-    $physics = []; // vėliau nutrinti
-    $physics['id'] = $_SESSION['id'];
-    $physics['main_quantity'] = $_POST['main_quantity'];
-    $physics['symbol'] = $_POST['symbol'];
-    $physics['si'] = $_POST['si'];
-    $physics['abbreviation'] = $_POST['abbreviation'];
+    $element['id'] = $_SESSION['id'];
+    $element['main_quantity'] = $_POST['main_quantity'];
+    $element['symbol'] = $_POST['symbol'];
+    $element['si'] = $_POST['si'];
+    $element['abbreviation'] = $_POST['abbreviation'];
 
 $_SESSION['id']++;
 
-$_SESSION['physics'][] = $physics;
-
+$_SESSION['physics'][] = $element;
 }
-
-
-
 
 
 function destroy(){
 
-    foreach ($_SESSION['physics'] as $key => $physics) {
+    foreach ($_SESSION['physics'] as $key => $element) {
 
-        if ($physics['id'] == $_POST['id']) {
+        if ($element['id'] == $_POST['id']) {
             unset($_SESSION['physics'][$key]);
             return;
         }
@@ -66,15 +53,14 @@ function destroy(){
 
 
 function update(){
-    foreach($_SESSION['physics'] as &$physics){
-
-        if ($physics['id'] == $_POST['id']) {
-            
-            $physics['main_quantity'] == $_POST['main_quantity'];
-            $physics['symbol'] == $_POST['symbol'];
-            $physics['si'] == $_POST['si'];
-            $physics['abbreviation'] == $_POST['abbreviation'];
+    foreach($_SESSION['physics'] as &$element){
+        if ($element['id'] == $_POST['id']) {
+            $element['main_quantity'] == $_POST['main_quantity'];
+            $element['symbol'] == $_POST['symbol'];
+            $element['si'] == $_POST['si'];
+            $element['abbreviation'] == $_POST['abbreviation'];
        return;
         }
     }
 }
+?>

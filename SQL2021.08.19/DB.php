@@ -2,7 +2,7 @@
 ///////////////////////////////------------- 20210819090621.....BAIGIAU ZIURETI 1:58:43--------------////////////////
 function connect()
 {
-    return new mysqli("localhost", "root", "", "medelynas");
+    return new mysqli("localhost", "root", "", "medelynams");
 }
 
 

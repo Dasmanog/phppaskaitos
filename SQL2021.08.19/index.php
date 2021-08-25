@@ -115,7 +115,6 @@ if (isset($_GET['edit'])) {
                         <input type="hidden" name="id" value="<?= $plant['id'] ?>">
                         <input type="hidden" name="action" value="destroy">
                         <button class="btn btn-danger" type="submit" name="delete" value="<?= $plant['id'] ?>">Trinti</button>    <!--//cia truksta action -->
-                    
                     </form>
                 </td>
             </tr>
